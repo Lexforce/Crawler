@@ -16,15 +16,15 @@ while(len(to_visit) > 0):
         #page = content.decode('UTF-8')
         #print(content.type)
         lines = content.split('\n')
-        print(len(lines))
+        #print(len(lines))
         for line in lines:
             m = re.search('href="(\w*/\w*.asp)"', line)
             m2 = re.search('href="(\w*/\w*.pdf)"', line)
             if m:
                 #print(m.group(1))
                 new_url = current_url + '/' + m.group(1)
-                print(new_url)
                 if new_url not in visited:
+                    print("new url: {}".format(new_url))
                     to_visit.append(new_url)
             if m2:
                 print(start_url + '/' + m2.group(1))
